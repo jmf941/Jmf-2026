@@ -8,21 +8,21 @@ const news = [
     date: "16 februari 2026",
     title: "Årlig hyresförhandling 2026 pågår",
     excerpt: "Hyresförhandlingen för 2026 är igång. Just nu pågår den årliga hyresförhandlingen mellan JMF AB, via vår representant Fastighetsägarna, och Hyresgästföreningen.",
-    href: "https://jmf.se/nyheter/arlig-hyresforhandling-2026-pagar/",
+    href: "/nyheter/arlig-hyresforhandling-2026-pagar/",
     category: "Allmänt",
   },
   {
     date: "02 april 2025",
     title: "Årlig hyresförhandling klar!",
     excerpt: "Den årliga förhandlingen mellan Fastighetsägarna som representerat oss och Hyresgästföreningen är nu avklarad. Hyreshöjningen sker retroaktivt.",
-    href: "https://jmf.se/allmant/arlig-hyresforhandling-klar-2/",
+    href: "/nyheter/arlig-hyresforhandling-klar-2/",
     category: "Allmänt",
   },
   {
     date: "18 november 2024",
     title: "Årlig hyresförhandling 2025",
     excerpt: "Det är nu dags för årlig hyreshöjning hos oss på JMF. Den årliga förhandlingen kommer att skötas av Fastighetsägarna på uppdrag av JMF.",
-    href: "https://jmf.se/allmant/arlig-hyresforhandling-2025/",
+    href: "/nyheter/arlig-hyresforhandling-2025/",
     category: "Allmänt",
   },
 ];
@@ -88,7 +88,7 @@ export default function News() {
           className="text-center mt-12"
         >
           <a
-            href="https://jmf.se/nyheter/"
+            href="/nyheter/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors"
