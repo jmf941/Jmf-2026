@@ -1,35 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, Tag, ChevronRight } from "lucide-react";
+import { newsArticles } from "../data/news";
 
-const news = [
-  {
-    date: "16 februari 2026",
-    title: "Årlig hyresförhandling 2026 pågår",
-    excerpt: "Hyresförhandlingen för 2026 är igång. Just nu pågår den årliga hyresförhandlingen mellan JMF AB, via vår representant Fastighetsägarna, och Hyresgästföreningen.",
-    href: "/nyheter/arlig-hyresforhandling-2026-pagar/",
-    category: "Allmänt",
-  },
-  {
-    date: "02 april 2025",
-    title: "Årlig hyresförhandling klar!",
-    excerpt: "Den årliga förhandlingen mellan Fastighetsägarna som representerat oss och Hyresgästföreningen är nu avklarad. Hyreshöjningen sker retroaktivt.",
-    href: "/nyheter/arlig-hyresforhandling-klar-2/",
-    category: "Allmänt",
-  },
-  {
-    date: "18 november 2024",
-    title: "Årlig hyresförhandling 2025",
-    excerpt: "Det är nu dags för årlig hyreshöjning hos oss på JMF. Den årliga förhandlingen kommer att skötas av Fastighetsägarna på uppdrag av JMF.",
-    href: "/nyheter/arlig-hyresforhandling-2025/",
-    category: "Allmänt",
-  },
-];
+// Get the 3 most recent news articles for the homepage
+const news = newsArticles
+  .slice()
+  .reverse()
+  .slice(0, 3)
+  .map(article => ({
+    date: article.date,
+    title: article.title,
+    excerpt: article.excerpt,
+    href: "/nyheter",
+    category: article.category,
+  }));
 
 export default function News() {
   return (
-    <section id="nyheter" className="py-24 bg-white">
+    <section id="nyheter" className="section-padding bg-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,8 +30,13 @@ export default function News() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Nyheter</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold mb-4">
+            Aktuellt
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+            Senaste <span className="gradient-text">nyheterna</span>
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Här hittar du de senaste uppdateringarna från JMF
           </p>
         </motion.div>
@@ -51,36 +49,48 @@ export default function News() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="group bg-gray-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all duration-300"
+              className="group bg-slate-50 rounded-2xl overflow-hidden hover:bg-white hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-slate-200"
             >
               <div className="p-8">
-                <div className="flex items-center space-x-2 text-sm text-blue-600 mb-3">
-                  <span className="bg-blue-100 px-3 py-1 rounded-full font-medium">
+                {/* Category & Date */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                    <Tag className="w-3 h-3 mr-1.5" />
                     {item.category}
                   </span>
+                  <div className="flex items-center text-slate-500 text-sm">
+                    <Calendar className="w-4 h-4 mr-1.5" />
+                    {item.date}
+                  </div>
                 </div>
-                <div className="flex items-center text-gray-500 text-sm mb-3">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {item.date}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{item.excerpt}</p>
+
+                {/* Excerpt */}
+                <p className="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
+                  {item.excerpt}
+                </p>
+
+                {/* Read more link */}
                 <a
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-blue-600 font-semibold group/link"
                 >
                   <span>Läs mer</span>
-                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
                 </a>
               </div>
+
+              {/* Bottom accent */}
+              <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </motion.article>
           ))}
         </div>
 
+        {/* View all news button */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -88,13 +98,11 @@ export default function News() {
           className="text-center mt-12"
         >
           <a
-            href="/nyheter/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors"
+            href="/nyheter"
+            className="group inline-flex items-center space-x-2 btn-secondary"
           >
             <span>Se alla nyheter</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </motion.div>
       </div>

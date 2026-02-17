@@ -10,18 +10,21 @@ const config: Config = {
     extend: {
       colors: {
         jmf: {
-          primary: "#1a1a1a",
+          primary: "#1e3a5f",
+          "primary-light": "#2c5282",
+          "primary-dark": "#152a45",
           accent: "#3b82f6",
-          light: "#f8fafc",
-          dark: "#0f172a",
+          "accent-light": "#60a5fa",
+          "accent-dark": "#2563eb",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-out",
         "slide-up": "slideUp 0.6s ease-out",
+        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         fadeIn: {
