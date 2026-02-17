@@ -2,61 +2,12 @@ import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Calendar, Tag, ArrowRight, ChevronRight, Newspaper, Bell } from "lucide-react";
+import { newsArticles, categories } from "../data/news";
 
 export const metadata: Metadata = {
   title: "Nyheter | JMF AB",
-  description: "Läs de senaste nyheterna från JMF AB. Information om hyresförhandlingar, nya fastigheter och annat som rör våra hyresgäster.",
+  description: "Läs de senaste nyheterna från JMF AB. Information om hyresförhandlingar, fastighetsskötsel och annat som rör våra hyresgäster.",
 };
-
-const newsArticles = [
-  {
-    id: 1,
-    date: "16 februari 2026",
-    title: "Årlig hyresförhandling 2026 pågår",
-    excerpt: "Hyresförhandlingen för 2026 är igång. Just nu pågår den årliga hyresförhandlingen mellan JMF AB, via vår representant Fastighetsägarna, och Hyresgästföreningen.",
-    content: "",
-    category: "Allmänt",
-    featured: true,
-  },
-  {
-    id: 2,
-    date: "02 april 2025",
-    title: "Årlig hyresförhandling klar!",
-    excerpt: "Den årliga förhandlingen mellan Fastighetsägarna som representerat oss och Hyresgästföreningen är nu avklarad. Hyreshöjningen sker retroaktivt från 1 januari.",
-    content: "",
-    category: "Allmänt",
-    featured: false,
-  },
-  {
-    id: 3,
-    date: "18 november 2024",
-    title: "Årlig hyresförhandling 2025",
-    excerpt: "Det är nu dags för årlig hyreshöjning hos oss på JMF. Den årliga förhandlingen kommer att skötas av Fastighetsägarna på uppdrag av JMF.",
-    content: "",
-    category: "Allmänt",
-    featured: false,
-  },
-  {
-    id: 4,
-    date: "04 mars 2024",
-    title: "Nya rutiner för felanmälan",
-    excerpt: "Nytt Felanmälningssystem och Jourtjänst på JMF. Vi på JMF är glada att kunna meddela lanseringen av vårt nya system för felanmälningar.",
-    content: "",
-    category: "Allmänt",
-    featured: false,
-  },
-  {
-    id: 5,
-    date: "15 juli 2023",
-    title: "Årlig hyresförhandling klar!",
-    excerpt: "Den årliga förhandlingen mellan Fastighetsägarna som representerat oss och Hyresgästföreningen är nu avklarad.",
-    content: "",
-    category: "Allmänt",
-    featured: false,
-  },
-];
-
-const categories = ["Allmänt", "Hyresförhandling", "Fastigheter", "Information"];
 
 export default function NyheterPage() {
   const featuredNews = newsArticles.find(n => n.featured);
@@ -115,10 +66,13 @@ export default function NyheterPage() {
                 <p className="text-blue-100 text-lg max-w-2xl mb-6">
                   {featuredNews.excerpt}
                 </p>
-                <button className="inline-flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors">
-                  <span>Läs mer</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <div className="prose prose-invert max-w-none">
+                  {featuredNews.content.split('\n\n').map((paragraph, idx) => (
+                    <p key={idx} className="text-blue-50 mb-4 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -151,9 +105,9 @@ export default function NyheterPage() {
             {regularNews.map((article) => (
               <article
                 key={article.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-300 flex flex-col"
               >
-                <div className="p-8">
+                <div className="p-8 flex-1">
                   {/* Meta */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="inline-flex items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
@@ -176,11 +130,14 @@ export default function NyheterPage() {
                     {article.excerpt}
                   </p>
 
-                  {/* Read more */}
-                  <button className="inline-flex items-center space-x-2 text-blue-600 font-semibold group/link">
-                    <span>Läs mer</span>
-                    <ChevronRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </button>
+                  {/* Content preview - expand on hover or click */}
+                  <div className="prose prose-slate max-w-none text-sm text-slate-500 line-clamp-6">
+                    {article.content.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} className="mb-3">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Bottom accent */}

@@ -2,30 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag, ChevronRight } from "lucide-react";
+import { newsArticles } from "../data/news";
 
-const news = [
-  {
-    date: "16 februari 2026",
-    title: "Årlig hyresförhandling 2026 pågår",
-    excerpt: "Hyresförhandlingen för 2026 är igång. Just nu pågår den årliga hyresförhandlingen mellan JMF AB, via vår representant Fastighetsägarna, och Hyresgästföreningen.",
-    href: "#",
-    category: "Allmänt",
-  },
-  {
-    date: "02 april 2025",
-    title: "Årlig hyresförhandling klar!",
-    excerpt: "Den årliga förhandlingen mellan Fastighetsägarna som representerat oss och Hyresgästföreningen är nu avklarad. Hyreshöjningen sker retroaktivt.",
-    href: "#",
-    category: "Allmänt",
-  },
-  {
-    date: "18 november 2024",
-    title: "Årlig hyresförhandling 2025",
-    excerpt: "Det är nu dags för årlig hyreshöjning hos oss på JMF. Den årliga förhandlingen kommer att skötas av Fastighetsägarna på uppdrag av JMF.",
-    href: "#",
-    category: "Allmänt",
-  },
-];
+// Get the 3 most recent news articles for the homepage
+const news = newsArticles
+  .slice()
+  .reverse()
+  .slice(0, 3)
+  .map(article => ({
+    date: article.date,
+    title: article.title,
+    excerpt: article.excerpt,
+    href: "/nyheter",
+    category: article.category,
+  }));
 
 export default function News() {
   return (
