@@ -1,4 +1,8 @@
 "use client";
+export const metadata = {
+  title: "Våra Fastigheter | JMF i Piteå",
+  description: "Se alla JMF:s fastigheter i Piteå på kartan. Vi har lägenheter i Strömsborg, Svensbyn, Böle och Lillpite.",
+};
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
@@ -66,7 +70,7 @@ export default function FastigheterPage() {
               { label: "Fastigheter", value: properties.length, icon: Building2 },
               { label: "Lägenheter", value: properties.reduce((sum, p) => sum + p.apartments, 0), icon: MapPin },
               { label: "Områden", value: 6, icon: MapPin },
-              { label: "År i Piteå", value: "20+", icon: Building2 },
+              { label: "År i Piteå", value: "5+", icon: Building2 },
             ].map((stat, index) => (
               <div key={stat.label} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 text-center">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mx-auto mb-3">
