@@ -21,7 +21,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <motion.a
-            href="tel:0703663747"
+            href="tel:091173336"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -32,7 +32,7 @@ export default function Contact() {
               <Phone className="w-7 h-7 text-blue-400" />
             </div>
             <h3 className="text-lg font-semibold mb-2">Telefon</h3>
-            <p className="text-2xl font-bold text-blue-400">070-366 37 47</p>
+            <p className="text-2xl font-bold text-blue-400">0911 73336</p>
             <p className="text-gray-400 text-sm mt-1">Martin Larsson</p>
           </motion.a>
 

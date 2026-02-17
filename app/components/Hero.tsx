@@ -87,9 +87,9 @@ export default function Hero() {
               <h3 className="font-semibold text-gray-900">Felanmälan</h3>
               <p className="text-sm text-gray-500 mt-1">Dygnet runt</p>
             </a>
-            <a href="tel:0703663747" className="group p-6 bg-white/80 backdrop-blur rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
+            <a href="tel:091173336" className="group p-6 bg-white/80 backdrop-blur rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
               <Phone className="w-8 h-8 text-blue-600 mb-3 mx-auto group-hover:scale-110 transition-transform" />
-              <h3 className="font-semibold text-gray-900">070-366 37 47</h3>
+              <h3 className="font-semibold text-gray-900">0911 73336</h3>
               <p className="text-sm text-gray-500 mt-1">Martin Larsson</p>
             </a>
             <a href="mailto:info@jmf.se" className="group p-6 bg-white/80 backdrop-blur rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all">
