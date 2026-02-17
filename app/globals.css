@@ -210,4 +210,23 @@
   .bg-gradient-subtle {
     background: linear-gradient(180deg, var(--jmf-gray-50) 0%, white 100%);
   }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--jmf-gray-100);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--jmf-gray-300);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--jmf-gray-400);
+  }
 }

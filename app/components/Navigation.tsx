@@ -8,6 +8,7 @@ import { cn } from "../utils/cn";
 
 const navLinks = [
   { name: "Hem", href: "/" },
+  { name: "Fastigheter", href: "/fastigheter" },
   { 
     name: "Tjänster", 
     href: "#",
