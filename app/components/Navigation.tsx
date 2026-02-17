@@ -40,7 +40,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex-shrink-0">
-            <Logo size="md" />
+            <img src="/logo.jpg" alt="JMF Fastigheter" className="h-12 w-auto object-contain" />
           </a>
 
           {/* Desktop Navigation */}

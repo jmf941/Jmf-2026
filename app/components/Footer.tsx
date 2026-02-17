@@ -19,7 +19,7 @@ const footerLinks = {
   ],
   kontakt: [
     { name: "info@jmf.se", href: "mailto:info@jmf.se" },
-    { name: "070-366 37 47", href: "tel:0703663747" },
+    { name: "0911 73336", href: "tel:091173336" },
   ],
 };
 
@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo & beskrivning */}
           <div className="lg:col-span-1">
-            <Logo size="lg" className="mb-6" />
+            <img src="/logo.jpg" alt="JMF Fastigheter" className="h-16 w-auto object-contain mb-6" />
             <p className="text-slate-400 leading-relaxed mb-6">
               JMF AB äger och förvaltar bostäder och affärslokaler i Norrbotten. 
               Trygg fastighetsförvaltning med fokus på långsiktiga relationer.
@@ -41,9 +41,9 @@ export default function Footer() {
             
             {/* Contact info */}
             <div className="space-y-3">
-              <a href="tel:0703663747" className="flex items-center space-x-3 text-slate-400 hover:text-blue-400 transition-colors group">
+              <a href="tel:091173336" className="flex items-center space-x-3 text-slate-400 hover:text-blue-400 transition-colors group">
                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span>070-366 37 47</span>
+                <span>0911 73336</span>
               </a>
               <a href="mailto:info@jmf.se" className="flex items-center space-x-3 text-slate-400 hover:text-blue-400 transition-colors group">
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
