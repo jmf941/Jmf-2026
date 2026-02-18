@@ -35,7 +35,7 @@ export default function AnsokanPage() {
       <section className="py-16 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/10 backdrop-blur rounded-2xl p-8 md:p-12 border border-white/20">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Se våra lediga lägenheter
@@ -56,11 +56,17 @@ export default function AnsokanPage() {
                 </a>
               </div>
               <div className="flex items-center justify-center">
-                <div className="bg-white rounded-2xl p-8 shadow-2xl">
-                  <Building className="w-24 h-24 text-blue-600 mx-auto" />
-                  <p className="text-center mt-4 text-slate-600 font-medium">Lediga lägenheter</p>
+                <div className="bg-white rounded-2xl p-8 shadow-2xl text-center">
+                  <Building className="w-16 h-16 text-blue-600 mx-auto" />
+                  <p className="mt-4 text-slate-600 font-medium">Lediga lägenheter via HomeQ</p>
                 </div>
               </div>
+            </div>
+            
+            {/* HomeQ Iframe Integration */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-inner p-1">
+              <div id="homeq-anchor" data-company="746"></div>
+              <script async src="https://www.homeq.se/api/v1/external/widget/loader"></script>
             </div>
           </div>
         </div>
