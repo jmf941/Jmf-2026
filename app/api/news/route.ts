@@ -1,72 +1,103 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { NextResponse } from 'next/server';
+import { saveNewsToMemory, saveNewsToSupabase } from '@/app/lib/memory-integration';
+import type { NewsArticle } from '@/app/lib/memory-integration';
 
-// GET /api/news - List all news articles
-export async function GET(request: NextRequest) {
+/**
+ * POST /api/news - Skapa ny nyhet
+ * Sparar både till Supabase och minnessystemet
+ */
+export async function POST(request: Request) {
   try {
-    const { searchParams } = new URL(request.url)
-    const category = searchParams.get('category')
-    const featured = searchParams.get('featured')
-    const limit = parseInt(searchParams.get('limit') || '100')
+    const article: NewsArticle = await request.json();
+    
+    console.log(`[JMF API] Skapar ny nyhet: ${article.title}`);
 
-    const where: any = {}
-    if (category) where.category = category
-    if (featured !== null) where.featured = featured === 'true'
+    // Validera
+    if (!article.title || !article.content) {
+      return NextResponse.json(
+        { success: false, error: 'Titel och innehåll krävs' },
+        { status: 400 }
+      );
+    }
 
-    const articles = await prisma.newsArticle.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      take: limit,
-    })
+    // Spara till Supabase
+    const supabaseSuccess = await saveNewsToSupabase(article);
+    if (!supabaseSuccess) {
+      console.error(`[JMF API] Fel vid sparande till Supabase: ${article.title}`);
+      return NextResponse.json(
+        { success: false, error: 'Kunde inte spara till databasen' },
+        { status: 500 }
+      );
+    }
 
-    return NextResponse.json(articles)
+    // Spara till minnessystemet
+    const memorySuccess = await saveNewsToMemory(article);
+    if (!memorySuccess) {
+      console.warn(`[JMF API] Kunde inte spara till minnessystemet: ${article.title}`);
+      // Fortsätt ändå - huvuddatabasen är viktigast
+    }
+
+    console.log(`[JMF API] Nyhet skapad: ${article.title}`);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Nyhet skapad',
+      data: {
+        id: article.id,
+        title: article.title,
+        savedToSupabase: supabaseSuccess,
+        savedToMemory: memorySuccess
+      }
+    });
   } catch (error) {
-    console.error('Error fetching news:', error)
+    console.error('[JMF API] Fel vid skapande av nyhet:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch news articles' },
+      { success: false, error: String(error) },
       { status: 500 }
-    )
+    );
   }
 }
 
-// POST /api/news - Create a new article
-export async function POST(request: NextRequest) {
+/**
+ * PUT /api/news - Uppdatera nyhet
+ */
+export async function PUT(request: Request) {
   try {
-    const body = await request.json()
-    const { slug, date, title, excerpt, content, category, featured } = body
+    const article: NewsArticle = await request.json();
+    
+    console.log(`[JMF API] Uppdaterar nyhet: ${article.title}`);
 
-    // Validate required fields
-    if (!slug || !title || !content) {
+    // Validera
+    if (!article.id || !article.title || !article.content) {
       return NextResponse.json(
-        { error: 'Missing required fields: slug, title, content' },
+        { success: false, error: 'ID, titel och innehåll krävs' },
         { status: 400 }
-      )
+      );
     }
 
-    const article = await prisma.newsArticle.create({
+    // Spara till Supabase (uppdaterar)
+    const supabaseSuccess = await saveNewsToSupabase(article);
+    
+    // Spara till minnessystemet (skapar ny eller uppdaterar)
+    const memorySuccess = await saveNewsToMemory(article);
+
+    console.log(`[JMF API] Nyhet uppdaterad: ${article.title}`);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Nyhet uppdaterad',
       data: {
-        slug,
-        date: date || new Date().toLocaleDateString('sv-SE'),
-        title,
-        excerpt: excerpt || content.slice(0, 200) + '...',
-        content,
-        category: category || 'Allmänt',
-        featured: featured || false,
-      },
-    })
-
-    return NextResponse.json(article, { status: 201 })
-  } catch (error: any) {
-    console.error('Error creating news article:', error)
-    if (error.code === 'P2002') {
-      return NextResponse.json(
-        { error: 'An article with this slug already exists' },
-        { status: 409 }
-      )
-    }
+        id: article.id,
+        title: article.title,
+        savedToSupabase: supabaseSuccess,
+        savedToMemory: memorySuccess
+      }
+    });
+  } catch (error) {
+    console.error('[JMF API] Fel vid uppdatering av nyhet:', error);
     return NextResponse.json(
-      { error: 'Failed to create news article' },
+      { success: false, error: String(error) },
       { status: 500 }
-    )
+    );
   }
 }
