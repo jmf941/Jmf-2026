@@ -1,8 +1,4 @@
 "use client";
-export const metadata = {
-  title: "Våra Fastigheter | JMF i Piteå",
-  description: "Se alla JMF:s fastigheter i Piteå på kartan. Vi har lägenheter i Strömsborg, Svensbyn, Böle och Lillpite.",
-};
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
