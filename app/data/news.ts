@@ -3,6 +3,7 @@
 
 export interface NewsArticle {
   id: number;
+  slug: string;
   date: string;
   title: string;
   excerpt: string;
@@ -14,6 +15,7 @@ export interface NewsArticle {
 export const newsArticles: NewsArticle[] = [
   {
     id: 1,
+    slug: "sank-elforbrukning-enkla-tips",
     date: "15 februari 2025",
     title: "Sänk din elförbrukning – enkla tips för lägre elräkning",
     excerpt: "Med stigande elpriser är det viktigare än någonsin att vara medveten om sin elförbrukning. Här delar vi med oss av praktiska tips som både sparar pengar och bidrar till en mer hållbar livsstil.",
@@ -31,6 +33,7 @@ Temperatur och ventilation spelar stor roll. Sänk inomhustemperaturen med en gr
   },
   {
     id: 2,
+    slug: "ventilationskontroller-varfor-gors-de",
     date: "10 mars 2025",
     title: "Ventilationskontroller – varför görs de och vad innebär de?",
     excerpt: "Regelbundna ventilationskontroller är en viktig del av underhållet i våra fastigheter. De säkerställer ett hälsosamt inomhusklimat och hjälper till att upptäcka potentiella problem i tid.",
@@ -48,192 +51,204 @@ Vid kontrollen undersöker vi tillufts- och frånluftsventiler, mäter luftflöd
   },
   {
     id: 3,
-    date: "20 april 2025",
-    title: "Flyttstädning – så gör du rätt",
-    excerpt: "När det är dags att flytta är det viktigt att lägenheten lämnas i ett gott skick. Här går vi igenom de viktigaste punkterna för en godkänd flyttstädning.",
-    content: `En noggrann flyttstädning är en viktig del av avflyttningsprocessen. Lägenheten ska lämnas i samma skick som när du flyttade in, rent och välvårdat. Här är en checklista över de områden som kräver extra uppmärksamhet.
+    slug: "flyttstadning-viktiga-punkter",
+    date: "22 april 2025",
+    title: "Flyttstädning – viktiga punkter att gå igenom",
+    excerpt: "När du flyttar ut från en lägenhet är det viktigt att lämna den i gott skick. Här går vi igenom de viktigaste punkterna för en godkänd flyttstädning.",
+    content: `En noggrann flyttstädning är avgörande för att få tillbaka hela depositionen och lämna lägenheten i gott skick för nästa hyresgäst. Här är de viktigaste områdena att fokusera på.
 
-I köket är det flera detaljer som behöver tas om hand. Ugnen ska rengöras invändigt, inklusive ugnsplåtar och ugnsgaller. Kyl och frys ska avfrostas och rengöras både invändigt och utvändigt. Kom ihåg att rengöra bakom och under vitvarorna om möjligt. Spisfläkten behöver rengöras noggrant, särskilt fettfiltret. Töm och rengör alla skåp och lådor.
+Köket kräver extra uppmärksamhet. Rengör ugnen noggrant, både insida och utsida, inklusive ugnsplåtar och galler. Kyl och frys ska avfrosts och rengöras invändigt, och glöm inte att damma av baksidan. Fläkten och dess filter ska rengöras, och alla skåp och lådor ska torkas ut invändigt.
 
-Badrummet kräver särskild uppmärksamhet på grund av kalkavlagringar. Rengör toalett, handfat, badkar och dusch med lämpliga medel. Avlägsna kalk från kranar och duschmunstycken. Rengör golvbrunnen och se till att silen är ren. Torka av väggar och golv noggrant.
+Badrummet är ett annat kritiskt område. Avlägsna kalkbeläggningar från kranar och duschmunstycken. Rengör toaletten noggrant, inklusive under kanten. Silarna i golvbrunnen och handfatet ska rengöras, och alla ytor ska torkas av.
 
-Fönster och balkongdörrar ska rengöras både invändigt och utvändigt, om möjligt. Glöm inte fönsterbrädor och karmar. För innerfönster räcker det oftast med invändig rengöring.
+Fönster och fönsterbrädor ska rengöras både invändigt och utvändigt. Glöm inte fönsterblecken och mellan fönstren om du har dubbla bågar. Fönsterbänkar och dörrfoder ska dammas och torkas av.
 
-Golv och väggar behöver också ses över. Dammsug och torka alla golv. Särskilda golv som parkett eller laminat kan behöva särskild behandling – var noga med att använda rätt rengöringsmedel. Torka av väggarna om det behövs och kontrollera särskilt runt strömbrytare och dörrhandtag.
+Golv och väggar ska dammas och rengöras. Särskilt uppmärksamma hörn och kanter där damm samlas. Om du har haft möbler på samma plats länge, var extra noggrann där.
 
-Balkong, förråd och gemensamma utrymmen som hör till lägenheten ska också städas. Töm balkongen på alla tillhörigheter och feja ordentligt. Rensa förrådet helt och se till att inget lämnas kvar.`,
+Balkong eller uteplats ska sopas och eventuellt rengöras. Förrådet ska tömmas och städas. Kom ihåg att även tvättstugan ska lämnas i gott skick om du har tillgång till en.`,
     category: "Information",
     featured: false,
   },
   {
     id: 4,
-    date: "18 maj 2025",
+    slug: "parkster-inforts-gastparkeringar",
+    date: "12 maj 2025",
     title: "Parkster införs på utvalda gästparkeringar",
-    excerpt: "Vi testar nu ett nytt system för gästparkering på vissa av våra fastigheter. Parkster gör det enklare för besökare att parkera och för oss att hantera parkeringsplatserna.",
-    content: `JMF inför nu Parkster som ett test på utvalda gästparkeringar i våra fastigheter. Systemet är utformat för att förenkla parkering för gäster och förbättra kontrollen av parkeringsplatserna.
+    excerpt: "Vi testar nu Parkster på några av våra gästparkeringar för att förenkla parkeringen för besökare. Läs mer om hur det fungerar.",
+    content: `För att förbättra parkeringsmöjligheterna för våra hyresgästers besökare testar vi nu systemet Parkster på utvalda gästparkeringar.
 
-Parkster är en digital lösning som gör att gäster enkelt kan betala för parkering via en app. Det eliminerar behovet av fysiska p-skivor eller parkeringsbrickor och gör det möjligt att hantera parkeringen på distans.
+Parkster är en digital lösning som gör det enkelt för gäster att betala för parkering via en app. Som hyresgäst behöver du inte längre ordna med besöksparkeringstillstånd – dina gäster sköter betalningen själva smidigt via telefonen.
 
-För dig som hyresgäst innebär detta att dina gäster enkelt kan parkera när de besöker dig. De laddar ner Parkster-appen, registrerar sitt fordon och betalar för den tid de vill parkera. Systemet är smidigt och användarvänligt.
+För dina gäster är det enkelt: de laddar ner Parkster-appen, anger bilens registreringsnummer och väljer hur länge de vill stå parkerade. Betalningen sker direkt i appen, och gästen kan enkelt förlänga tiden om det behövs.
 
-Om du har frågor om vilka fastigheter som omfattas av testet eller hur Parkster fungerar, är du välkommen att kontakta vår kundservice. Vi utvärderar löpande testet och återkommer med mer information om eventuell permanent införande.
+De fastigheter som ingår i testet är utrustade med tydliga skyltar som informerar om Parkster. Som hyresgäst i dessa fastigheter kommer du att få mer detaljerad information om hur systemet fungerar.
 
-Tänk på att de ordinarie parkeringsreglerna fortfarande gäller. Parkster är ett komplement för att underlätta gästparkering, inte en ersättning för befintliga boendeparkeringstillstånd eller regler.`,
+Vi utvärderar kontinuerligt testet och tar gärna emot feedback från er som hyresgäster. Målet är att hitta en lösning som fungerar bra för alla parter.`,
     category: "Allmänt",
     featured: false,
   },
   {
     id: 5,
-    date: "12 juni 2025",
+    slug: "vattenavstangning-planerat-underhall",
+    date: "8 juni 2025",
     title: "Planerade vattenavstängningar för underhåll",
-    excerpt: "För att säkerställa att vattenledningarna fungerar optimalt kommer vi att genomföra underhållsarbete som kräver tillfälliga vattenavstängningar. Här informerar vi om vad detta innebär.",
-    content: `Regelbundet underhåll av vattenledningar är nödvändigt för att säkerställa en tillförlitlig vattentillförsel och förebygga läckor och andra problem. Därför kommer JMF att genomföra planerade vattenavstängningar i vissa fastigheter under kommande period.
+    excerpt: "För att säkerställa vattenkvaliteten och underhålla ledningarna kommer vi att genomföra planerade avstängningar. Här kan du läsa mer om varför och hur det påverkar dig.",
+    content: `Regelbundet underhåll av vattenledningar är nödvändigt för att säkerställa en säker och tillförlitlig vattentillförsel. Därför planerar vi periodiska avstängningar för underhållsarbete.
 
-Vattenavstängningarna är nödvändiga för att utföra inspektioner, rengöring och eventuella reparationer av ledningarna. Detta arbete bidrar till att förlänga livslängden på rörsystemet och minskar risken för akuta vattenläckor som kan orsaka större skador.
+Vattenavstängningarna är nödvändiga för att kunna utföra arbete på ledningarna, såsom reparationer, utbyten av ventiler eller spolning av rör. Detta arbete är viktigt för att upprätthålla vattenkvaliteten och förhindra framtida problem som läckor eller föroreningar.
 
-Innan en planerad avstängning kommer alla berörda hyresgäster att informeras i god tid, normalt minst en vecka i förväg. Informationen lämnas via anslag i trapphuset, digitalt eller via brev. I meddelandet anges exakt tidpunkt för avstängningen och beräknad varaktighet.
+Innan en planerad avstängning informerar vi alla berörda hyresgäster i god tid, normalt minst en vecka i förväg. Informationen delas ut via informationsblad i brevlådorna och via vår hemsida. I informationen anges exakt tidpunkt för avstängningen och beräknad varaktighet.
 
-Under en vattenavstängning har du inte tillgång till rinnande vatten i lägenheten. Det är därför bra att förbereda sig genom att till exempel fylla vattenflaskor eller kastruller i förväg. Tänk också på att inte använda diskmaskin eller tvättmaskin strax före avstängningen.
+Under avstängningsperioden är det viktigt att du inte använder vatten i lägenheten. Detta innebär att du inte kan spola i toaletten, använda kranar eller duscha. Vi rekommenderar att du i förväg fyller upp vatten i kannor eller flaskor för att ha till hands.
 
-Om det uppstår akuta situationer under avstängningsperioden, kontakta vår jour enligt de instruktioner som lämnas i informationsmeddelandet. Vi strävar alltid efter att genomföra arbetet så snabbt och smidigt som möjligt för att minimera olägenheten för våra hyresgäster.`,
+Efter att vattnet är tillbaka kan det vara missfärgat eller innehålla luft i början. Detta är normalt och försvinner vanligtvis efter att du låtit vattnet rinna en stund. Om missfärgningen kvarstår, kontakta oss.`,
     category: "Information",
     featured: false,
   },
   {
     id: 6,
-    date: "25 augusti 2025",
-    title: "Förbered din lägenhet för hösten och vintern",
-    excerpt: "När sommaren går mot sitt slut är det dags att förbereda lägenheten för kallare väder. Här är våra bästa tips för att säkerställa ett varmt och behagligt inomhusklimat under höst och vinter.",
-    content: `Hösten och vintern medför sina utmaningar för bostaden. Genom att förbereda i tid kan du undvika problem och skapa ett trivsamt inomhusklimat även under de kallaste månaderna.
+    slug: "host-vinter-rutiner-forberedelser",
+    date: "15 augusti 2025",
+    title: "Höst- och vinterrutiner – förbered din lägenhet",
+    excerpt: "När kylan närmar sig är det viktigt att förbereda lägenheten på rätt sätt. Här ger vi tips på vad du kan göra för att undvika problem under vinterhalvåret.",
+    content: `Övergången från sommar till höst och vinter innebär förändringar som påverkar din lägenhet. Med några enkla förberedelser kan du undvika vanliga problem under den kalla årstiden.
 
-Fönster och dörrar är de viktigaste punkterna att kontrollera. Se till att fönstren stänger ordentligt och att det inte finns några glipor som släpper in kalluft. Kontrollera lister och tätningar – om de är skadade eller slitna bör de bytas ut. Drag från fönster kan leda till både obehag och onödig energiförbrukning.
+Element och värmesystem behöver fungera optimalt när temperaturen sjunker. Kontrollera att elementen inte är blockerade av möbler, gardiner eller annat som hindrar värmen från att spridas. Om du märker att ett element inte blir varmt, kontakta oss så vi kan åtgärda det innan kylan sätter in på allvar.
 
-Elementen behöver också ses över. Kontrollera att de värmer som de ska och att de inte är blockerade av möbler eller gardiner. Element som står bakom långa gardiner eller stora möbler har svårt att värma rummet effektivt. Se också till att det inte finns några luftbubblor i systemet – om elementet är kallt upptill kan det behöva luftas.
+Fönster och dörrar är kritiska för att behålla värmen. Kontrollera att fönstren stänger tätt och att det inte drar någonstans. Om du upptäcker otätheter eller problem med fönstren, anmäl det till oss så snart som möjligt. Täta fönster minskar både dina uppvärmningskostnader och miljöpåverkan.
 
-Ventilationen är särskilt viktig under vintern när vi håller fönstren stängda mer än vanligt. Se till att ventilationskanalerna inte är blockerade. God ventilation hjälper till att transportera bort fukt och skapar ett hälsosammare inomhusklimat. Vädra gärna kort och effektivt genom att öppna fönstren på vid gavel några minuter istället för att ha fönstren på glänt under lång tid.
+Ventilation är viktig året om, men särskilt under vintern när vi håller fönstren stängda. Se till att ventilationsöppningar inte är blockerade. God ventilation motverkar kondens och fuktproblem, vilket är särskilt viktigt under den kalla årstiden.
 
-Tänk också på att förbereda för eventuella oväder. Kontrollera att balkongen är säker och att inga lösa föremål kan blåsa ner. Om du har förråd på vinden eller i källaren, se till att inget står i vägen för ventilationen och att det inte finns risk för fuktskador.`,
+Vid längre frånvaro, till exempel under vintersemestern, är det viktigt att hålla en viss temperatur i lägenheten för att förhindra frostskador. Aldrig lägre än 15 grader. Om du ska vara borta länge, informera oss gärna.`,
     category: "Information",
     featured: false,
   },
   {
     id: 7,
-    date: "15 september 2025",
-    title: "Brandvarnare – din viktigaste livräddare",
-    excerpt: "En fungerande brandvarnare kan rädda liv. Lär dig varför det är så viktigt att testa din brandvarnare regelbundet och hur du gör det på rätt sätt.",
-    content: `Brandvarnaren är en av de viktigaste säkerhetsanordningarna i ditt hem. Vid en brand kan du ha så lite som två minuter på dig att ta dig ut – en fungerande brandvarnare ger dig den tiden.
+    slug: "brandvarnare-testa-manadsvis",
+    date: "5 september 2025",
+    title: "Brandvarnare – testa månadsvis för din säkerhet",
+    excerpt: "En fungerande brandvarnare kan rädda liv. Lär dig varför det är viktigt att testa den regelbundet och hur du gör.",
+    content: `Brandvarnaren är en av de viktigaste säkerhetsanordningarna i ditt hem. En fungerande brandvarnare ger dig tidigt varsel om brand och kan rädda både liv och egendom.
 
-Det är ditt ansvar som hyresgäst att se till att brandvarnaren i din lägenhet fungerar. Detta inkluderar att testa den regelbundet och byta batteri när det behövs. Vi rekommenderar att du testar brandvarnaren minst en gång i månaden.
+Det är ditt ansvar som hyresgäst att se till att brandvarnaren fungerar. Detta innebär främst att testa den regelbundet och byta batteri när det behövs. Vi rekommenderar att du testar brandvarnaren minst en gång i månaden.
 
-Att testa brandvarnaren är enkelt. De flesta brandvarnare har en testknapp som du trycker på i några sekunder. Om den piper högt fungerar den som den ska. Om ljudet är svagt eller uteblir är det dags att byta batteri eller hela brandvarnaren.
+Att testa brandvarnaren är enkelt. De flesta brandvarnare har en testknapp som du trycker på. Om varnaren piper högt fungerar den som den ska. Om den inte piper, eller om signalen är svag, behöver batteriet bytas. Byt alltid batteri omedelbart när varnaren ger ifrån sig ett svagt pip med jämna mellanrum – det är batterivarningen.
 
-Brandvarnaren ska placeras på taket eller högt upp på väggen, då rök stiger uppåt. Se till att den inte blockeras av möbler eller gardiner. I en större lägenhet kan det behövas mer än en brandvarnare – varje våning och varje sovrum bör ha en egen brandvarnare.
+Brandvarnaren ska vara placerad på taket eller högt upp på väggen, helst i hallen utanför sovrummen. Se till att den inte är blockerad av möbler eller annat som hindrar röken från att nå den. Damm kan också påverka funktionen, så torka av varnaren försiktigt vid behov.
 
-Om brandvarnaren börjar pipa med jämna mellanrum är det ofta ett tecken på att batteriet håller på att ta slut. Byt batteri omedelbart – ett utan batteri är ett liv i fara. Även om du har en brandvarnare med tioårigt batteri bör du testa den regelbundet för att säkerställa att den fungerar.
-
-Om brandvarnaren i din lägenhet inte fungerar eller om du saknar brandvarnare, kontakta JMF omedelbart så hjälper vi dig.`,
+Om brandvarnaren inte fungerar trots batteribyte, eller om den är äldre än tio år, kontakta oss för utbyte. Vi ser till att det installeras fungerande brandvarnare i alla våra lägenheter, men underhållet under hyrestiden är hyresgästens ansvar.`,
     category: "Information",
     featured: false,
   },
   {
     id: 8,
-    date: "08 oktober 2025",
-    title: "Så sorterar du ditt avfall rätt",
-    excerpt: "Rätt avfallssortering är viktigt för miljön och en del av ditt hyreskontrakt. Här guidar vi dig till hur du sorterar olika typer av avfall och var du hittar soprum och miljörum.",
-    content: `Att sortera avfall på rätt sätt är en viktig del av vårt gemensamma miljöansvar. Korrekt källsortering minskar mängden avfall som går till förbränning och möjliggör återvinning av värdefulla material.
+    slug: "atervinning-sorteringsguide",
+    date: "3 oktober 2025",
+    title: "Återvinning – sorteringsguide för ditt hushåll",
+    excerpt: "Rätt sortering av avfall är viktigt för miljön. Här kan du läsa mer om vad som ska sorteras var och var du hittar återvinningsstationerna.",
+    content: `Att sortera sitt avfall är en enkel men viktig insats för miljön. Genom att återvinna material kan vi spara resurser och minska mängden avfall som går till deponi.
 
-I din lägenhet bör du ha olika kärl för olika typer av avfall. Hushållssopor är det som inte kan återvinnas och ska kastas i den bruna eller gråa soptunnan. Matavfall sorteras separat – använd den bruna påsen för matavfall som kan bli biogas och biogödsel.
+De flesta av våra fastigheter har soprum med möjlighet till källsortering. Vanligtvis finns det behållare för restavfall, papper, plast, metall och glas. Se till att du sorterar rätt – fel sorterat avfall kan förorena hela soptunnan och göra återvinning omöjlig.
 
-Förpackningar av papper, plast, metall och glas ska sorteras i speciella behållare i soprummet eller miljörummet. Tidningar och returpapper lämnas i anvisade behållare. Tomglas ska sorteras efter färg – ofta finns separata kärl för ofärgat och färgat glas.
+Papper och kartong ska vara rena och torra. Tidningar, reklam, äggkartonger och wellpapp hör hemma här. Se till att platta till kartonger så de tar mindre plats. Blött eller smutsigt papper, som pizzakartonger med fettfläckar, ska slängas som restavfall.
 
-Elektroniskt avfall, batterier och farligt avfall som färgrester eller sprayburkar ska aldrig kastas i hushållssoporna. Dessa lämnas i miljörummet eller på en återvinningscentral. Läkemedel lämnas på apoteket.
+Plastförpackningar ska tömmas och sköljas lätt. Locket ska på, men du behöver inte ta bort etiketter. Både hårdplast och mjukplast är välkommet. Dock ska inte annan plast, som leksaker eller plastmöbler, slängas här – det är förpackningar som gäller.
 
-Du hittar soprum och miljörum i anslutning till din fastighet. Information om exakt placering finns i ditt hyreskontrakt eller på anslag i trapphuset. Om du är osäker på var du ska slänga något, kontakta din fastighetsförvaltare.
+Metallförpackningar inkluderar konservburkar, kapsyler och aluminiumfolie. Töm och skölj dem lätt. Glöm inte att folien ska samlas ihop till en boll.
 
-Större avfall som möbler eller cyklar ska inte kastas i soprummet. Kontakta din kommun för information om grovsophämtning eller återvinningscentraler.`,
+Glas sorteras i ofärgat och färgat. Flaskor och burkar ska vara tömda. Lägg inte porslin, speglar eller glödlampor i glasåtervinningen.`,
     category: "Information",
     featured: false,
   },
   {
     id: 9,
-    date: "05 november 2025",
-    title: "Felanmälan – när och hur ska du anmäla?",
-    excerpt: "Att veta när man ska göra en felanmälan och vilken prioritet den har kan vara förvirrande. Här förklarar vi skillnaden mellan akuta fel och sådant som kan vänta.",
-    content: `När något inte fungerar som det ska i din lägenhet är det viktigt att du vet hur och när du ska göra en felanmälan. Rätt hantering hjälper oss att åtgärda problem snabbt och effektivt.
+    slug: "felanmalan-akut-vs-kan-vanta",
+    date: "14 november 2025",
+    title: "Felanmälan – när ska du anmäla och vad är akut?",
+    excerpt: "Det är viktigt att veta när du ska göra en felanmälan och vad som räknas som akut. Här förklarar vi skillnaden.",
+    content: `Att veta när du ska göra en felanmälan och vad som räknas som akut kan spara både tid och besvär. Här går vi igenom riktlinjerna för när du ska kontakta oss.
 
-Akuta fel kräver omedelbar åtgärd och ska alltid anmälas direkt till vår jourtjänst. Dit räknas till exempel stora vattenläckor, avloppsstopp som orsakar översvämning, total strömavbrott, lås som inte fungerar eller andra fel som utgör en omedelbar risk för säkerhet eller hälsa. Vid akuta fel utanför kontorstid, ring vår jourtelefon.
+Akuta fel är sådana som innebär omedelbar skaderisk eller som gör lägenheten obrukbar. Exempel på akuta fel är vattenläckage, stopp i avloppet som orsakar översvämning, total strömavbrott eller lås som har gått sönder så du inte kan stänga eller låsa dörren. Vid akuta fel, kontakta oss omedelbart.
 
-Fel som kan vänta till nästa arbetsdag anmäls via vår hemsida eller till kundservice. Exempel på sådana fel är kranar som droppar, element som inte värmer ordentligt, lossna lister, eller fönster som inte stänger ordentligt. Även om dessa problem är besvärande är de inte akuta och kan planeras in för åtgärd.
+Mindre akuta fel kan vänta till vardagen men ska ändå anmälas så snart som möjligt. Detta inkluderar droppande kranar, trasiga element som fortfarande värmer delvis, fläktar som låter men fungerar, eller mindre skador på inredning. Använd vår felanmälningsportal för att göra en anmälan.
 
-När du gör en felanmälan, var så tydlig som möjligt. Besriv vad problemet är, var det finns och hur länge det har pågått. Om möjligt, ta gärna bilder som du kan bifoga i felanmälan. Detta hjälper oss att bedöma problemet och ta med rätt utrustning.
+Fel som du själv har orsakat genom slarv eller oskicklighet kan komma att debiteras dig. Detta gäller till exempel om du har spolat ner olämpliga föremål i toaletten och orsakat stopp, eller om du har skadat något vid montering av möbler.
 
-Tänk på att vissa fel kan vara ditt ansvar som hyresgäst. Normalt slitage, skador du orsakat själv eller problem med egna installationer är ditt eget ansvar att åtgärda. Om du är osäker på om något är JMF:s eller ditt ansvar, kontakta oss så hjälper vi dig att reda ut det.
+Vid felanmälan är det viktigt att du beskriver problemet så utförligt som möjligt. Ange vad som är fel, var i lägenheten det finns, och hur länge det har pågått. Ju mer information vi får, desto lättare är det för oss att åtgärda problemet effektivt.
 
-Du kan göra felanmälan via vår hemsida under fliken "Felanmälan" eller genom att kontakta vår kundservice. Vid akuta fel, ring alltid vår jourtelefon.`,
+Kom ihåg att du alltid kan kontakta oss om du är osäker på om något ska anmälas eller inte. Det är bättre att anmäla i onödan än att låta ett problem växa och bli större.`,
     category: "Information",
     featured: false,
   },
   {
     id: 10,
+    slug: "hemforsakring-vad-tacker-vad",
     date: "10 december 2025",
     title: "Hemförsäkring – vad täcker hyresvärden och vad täcker du?",
     excerpt: "Många är osäkra på skillnaden mellan fastighetsförsäkring och hemförsäkring. Här förklarar vi vad som ingår i JMF:s försäkring och varför du behöver en egen hemförsäkring.",
-    content: `Att förstå försäkringsskyddet är en viktig del av att vara hyresgäst. JMF har en fastighetsförsäkring som täcker vissa saker, men det är viktigt att du också har en egen hemförsäkring.
+    content: `Att förstå vad som täcks av hyresvärdens försäkring och vad du som hyresgäst behöver teckna själv är viktigt för att undvika obehagliga överraskningar om olyckan är framme.
 
-Fastighetsförsäkringen som JMF har täcker själva fastigheten – det vill säga byggnaden, fast inredning som kök och badrum, och fastighetens gemensamma utrymmen. Om det uppstår skador på fastigheten som påverkar din lägenhet, till exempel vid en vattenläcka eller brand, täcker vår försäkring reparation av fastigheten och fast inredning.
+Fastighetsförsäkringen, som JMF har, täcker skador på själva byggnaden och fast egendom. Detta inkluderar skador på grund av brand, vattenläckage eller andra plötsliga händelser som påverkar byggnadens konstruktion. Försäkringen täcker också skador på fasta installationer som element, rör och el-system.
 
-Däremot täcker fastighetsförsäkringen inte dina privata ägodelar. Det är där din hemförsäkring kommer in. En hemförsäkring täcker dina möbler, elektronik, kläder och andra personliga tillhörigheter vid till exempel brand, inbrott eller vattenskada. Hemförsäkringen ger också ofta ett ansvarsskydd som skyddar dig om du skulle orsaka skada på någon annan eller deras egendom.
+Däremot täcker fastighetsförsäkringen inte dina privata ägodelar. Ditt möblemang, din elektronik, dina kläder och andra personliga tillhörigheter är ditt eget ansvar. För att skydda dessa behöver du en egen hemförsäkring.
 
-Om du orsakar en skada i lägenheten, till exempel genom att lämna en kran på eller orsaka en översvämning, kan du bli ersättningsskyldig. Då kan hemförsäkringens ansvarsskydd komma väl till pass. Utan hemförsäkring kan du själv behöva stå för kostnaderna.
+En hemförsäkring täcker inte bara dina saker i lägenheten, utan ger dig också skydd på resor och ersätter skador du kan orsaka på andras egendom. Dessutom ingår ofta rättsskydd och hjälp vid ID-kapning.
 
-Det är ditt ansvar som hyresgäst att teckna och upprätthålla en hemförsäkring. Kontakta ett försäkringsbolag för att teckna en försäkring som passar dina behov. JMF kan inte rekommendera specifika bolag, men de flesta större försäkringsbolag erbjuder hemförsäkringar.`,
+Om du orsakar skada på lägenheten, till exempel genom att spilla något på golvet som lämnar fläckar, kan du bli ersättningsskyldig gentemot hyresvärden. En hemförsäkring med ansvarsförsäkring kan täcka sådana kostnader.
+
+Vi rekommenderar starkt att alla våra hyresgäster har en giltig hemförsäkring. Kontrollera med ditt försäkringsbolag att du har tillräckligt skydd för dina behov.`,
     category: "Information",
-    featured: false,
+    featured: true,
   },
   {
     id: 11,
+    slug: "valkommen-ny-hyresgast-checklista",
     date: "12 januari 2026",
     title: "Välkommen som ny hyresgäst – en checklista för inflyttning",
     excerpt: "Att flytta in i en ny lägenhet är både spännande och mycket att hålla reda på. Här har vi samlat de viktigaste punkterna att tänka på när du flyttar in hos JMF.",
-    content: `Grattis till din nya lägenhet! För att göra inflyttningen så smidig som möjligt har vi satt ihop en checklista med viktiga saker att tänka på.
+    content: `Välkommen till JMF! Som ny hyresgäst finns det flera saker att tänka på för att din inflyttning ska gå så smidigt som möjligt.
 
-Innan du flyttar in är det viktigt att ordna med elavtalet. Du behöver själv teckna ett elavtal med ett elbolag. Kontakta dem i god tid innan inflyttningsdatumet för att säkerställa att elen är påslagen när du flyttar in. Kom ihåg att läsa av elmätaren vid inflyttning och rapportera mätarställningen till ditt elbolag.
+Inflyttningsbesiktning är ett viktigt första steg. Tillsammans går vi igenom lägenheten och dokumenterar eventuella skador eller brister som finns redan när du flyttar in. Detta är viktigt för att du inte ska bli ansvarig för skador som fanns innan du flyttade in. Se till att vara noggrann och påpeka allt du lägger märke till.
 
-När du får tillgång till lägenheten, börja med att gå igenom den noggrant. Kontrollera att allt fungerar – vatten, el, spis, kyl och frys. Notera eventuella skador eller brister som finns redan vid inflyttningen. Det är viktigt att dokumentera detta för att undvika tvister vid utflyttning. Fotografera gärna befintliga skador.
+Elavläsning bör göras så snart som möjligt efter inflyttning. Notera mätarställningen och skicka in den till oss så vi vet varifrån din elförbrukning räknas. Om du inte gör detta kan du riskera att betala för el som den förra hyresgästen har förbrukat.
 
-Se till att teckna en hemförsäkring innan du flyttar in. Den täcker dina ägodelar och ger dig ett ansvarsskydd. Läs mer om hemförsäkring i en separat artikel på vår hemsida.
+Hemförsäkring är ett krav från vår sida. Se till att teckna en hemförsäkring som täcker dina ägodelar och ger dig ansvarsskydd. Vi behöver ofta ett intyg på att försäkringen är tecknad.
 
-Om du flyttar från en annan lägenhet, glöm inte att skicka in ditt avflyttningsdatum till oss. Detta är viktigt för att vi ska kunna planera kommande hyresgäster och för att du inte ska stå kvar som hyresgäst på den gamla adressen.
+Adressändring ska göras hos Skatteverket för att du ska få din post. Kom också ihåg att anmäla din nya adress till bank, arbetsgivare och andra viktiga instanser.
 
-Vid inflyttning får du nycklar och eventuella brickor till lägenheten. Kontrollera att du får rätt antal nycklar och att de fungerar. Om du har frågor om nycklar, passage eller säkerhet, kontakta oss.
-
-Kom också ihåg att anmäla din nya adress till Skatteverket och uppdatera din adress hos andra myndigheter, banker och abonnemang. Gör en adressändring på posten för att få din post eftersänd.`,
+Felanmälningssystemet är tillgängligt via vår hemsida. Spara länken och gör dig bekant med hur det fungerar. Om du upptäcker något som inte fungerar i lägenheten när du flyttar in, anmäl det omedelbart.`,
     category: "Information",
-    featured: false,
+    featured: true,
   },
   {
     id: 12,
+    slug: "hantera-hoga-elpriser-praktiska-tips",
     date: "28 januari 2026",
     title: "Så hanterar du höga elpriser – praktiska tips",
     excerpt: "Elmarknaden har varit volatil och priserna har varit höga. Här ger vi dig en överblick över elmarknaden och konkreta tips för att hantera höga elräkningar.",
-    content: `Elpriserna har varit höga och volatila under en längre period. Förståelse för elmarknaden och smarta sätt att minska förbrukningen kan hjälpa dig att hantera situationen.
+    content: `Elpriserna har varit fortsatt höga under vintern, vilket påverkar många hushålls ekonomi. Här delar vi med oss av tips för att hantera situationen och sänka dina elkostnader.
 
-Elpriset bestäms av flera faktorer: väder, tillgång på vatten i vattenkraftens magasin, underhåll av kärnkraftverk, efterfrågan från industri och hushåll, samt internationella händelser som påverkar gas- och kolpriser. Sverige har delat upp elnätet i fyra elområden, och priserna kan variera mellan dessa områden beroende på tillgång och efterfrågan.
+Först och främst är det viktigt att förstå vad som påverkar elpriset. Priset varierar beroende på tillgång och efterfrågan, väder, och bränslepriser. Under kalla perioder när efterfrågan är hög, stiger priserna. Detta är särskilt märkbart under vintermorgnar och kvällar.
 
-För att hantera höga elpriser finns det flera strategier. Ett alternativ är att byta till ett elavtal med rörligt pris om du har fast pris och marknadspriset har sjunkkt, eller tvärtom – teckna fast pris om du tror att priserna kommer att stiga. Jämför alltid olika elbolag och avtalsformer för att hitta det som passar dig bäst.
+Ett av de mest effektiva sätten att påverka din elkostnad är att flytta din förbrukning till tider när priset är lägre. Om du har möjlighet, kör diskmaskinen, tvättmaskinen och torktumlaren på natten eller under helgen när priserna ofta är lägre.
 
-Det mest effektiva sättet att påverka elräkningen är att minska förbrukningen. Se vår artikel om elförbrukning för detaljerade tips, men kom ihåg de viktigaste: byt till LED-belysning, duscha kortare, stäng av standby-förbrukning och sänk inomhustemperaturen med en grad.
+Sänk inomhustemperaturen. En grads sänkning kan minska uppvärmningskostnaden med ungefär fem procent. Använd varma kläder och filtar istället för att höja temperaturen. Se till att stänga dörrar mellan rum för att behålla värmen där du faktiskt vistas.
 
-Tidsstyrd förbrukning kan också spara pengar om du har ett avtal med timpriser. Att använda diskmaskin, tvättmaskin och torktumlare under timmar med lägre pris kan märkbart sänka kostnaden. Många elbolag erbjuder appar där du kan se aktuella och kommande priser.
+Korta, effektiva duschar sparar både vatten och el. Om du har möjlighet, sänk temperaturen på varmvattnet något. Även små förändringar märks på elförbrukningen.
 
-Det finns också stöd att söka för hushåll med höga elräkningar. Kontakta din kommun eller Elsäkerhetsverket för information om eventuella bidrag eller stödinsatser som finns tillgängliga.
-
-Kom ihåg att el är en förutsättning för vårt moderna samhälle. Genom att vara medveten om din förbrukning och göra smarta val kan du både spara pengar och bidra till en mer hållbar energianvändning.`,
+Om du har möjlighet, överväg att teckna ett elavtal med rörligt pris om du kan flytta din förbrukning, eller fast pris om du vill ha förutsägbara kostnader. Jämför olika elbolag för att hitta det bästa alternativet för dig.`,
     category: "Information",
-    featured: false,
+    featured: true,
   },
 ];
 
-export const categories = ["Allmänt", "Information", "Hyresförhandling", "Fastigheter"];
+// Hjälpfunktion för att få featured nyheter
+export const getFeaturedNews = () => {
+  return newsArticles.filter(article => article.featured).slice(0, 3);
+};
 
-export default newsArticles;
+// Hjälpfunktion för att få alla nyheter sorterade efter datum
+export const getAllNews = () => {
+  return [...newsArticles].sort((a, b) => b.id - a.id);
+};

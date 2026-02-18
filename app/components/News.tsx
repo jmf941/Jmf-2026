@@ -13,7 +13,7 @@ const news = newsArticles
     date: article.date,
     title: article.title,
     excerpt: article.excerpt,
-    href: "/nyheter",
+    href: `/nyheter/${article.slug}`,
     category: article.category,
   }));
 
