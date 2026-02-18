@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { Calendar, Tag, ArrowRight, ChevronRight, Newspaper, Bell } from "lucide-react";
-import { newsArticles, } from "../data/news";
+import { newsArticles } from "../data/news";
+
+const categories = ["Allmänt", "Information"];
 
 export const metadata: Metadata = {
   title: "Nyheter | JMF AB",
