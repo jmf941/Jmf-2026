@@ -8,8 +8,8 @@ const contactMethods = [
     icon: Phone,
     title: "Telefon",
     value: "0911 73336",
-    subtitle: "Martin Larsson",
-    href: "tel:0703663747",
+    subtitle: "Vardagar 10-16",
+    href: "tel:091173336",
     color: "emerald",
   },
   {
@@ -126,8 +126,8 @@ export default function Contact() {
                 <MessageCircle className="w-6 h-6 text-emerald-400" />
               </div>
               <div>
-                <h4 className="font-semibold text-white">Akut felanmälan</h4>
-                <p className="text-slate-400 text-sm">Dygnet runt via portalen</p>
+                <h4 className="font-semibold text-white">Felanmälan</h4>
+                <p className="text-slate-400 text-sm">Via Mina Sidor dygnet runt</p>
               </div>
             </div>
           </div>

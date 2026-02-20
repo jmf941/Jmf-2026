@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Building2, Phone, Wrench, MapPin, Home } from "lucide-react";
+import { ArrowRight, Building2, Wrench, Home, Mail } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -101,19 +101,15 @@ export default function Hero() {
                 color: "blue"
               },
               {
-                href: "tel:0703663747",
-                icon: Phone,
-                title: "0911 73336",
-                subtitle: "Martin Larsson",
+                href: "https://portal.pigello.se/kustbo",
+                icon: Home,
+                title: "Mina Sidor",
+                subtitle: "Logga ditt ärende",
                 color: "green"
               },
               {
                 href: "mailto:info@jmf.se",
-                icon: () => (
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                ),
+                icon: Mail,
                 title: "info@jmf.se",
                 subtitle: "Maila oss",
                 color: "purple"
