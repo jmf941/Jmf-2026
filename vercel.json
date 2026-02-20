@@ -1,4 +1,5 @@
 {
+  "buildCommand": "npx prisma generate && next build",
   "env": {
     "DATABASE_URL": "postgresql://postgres:j7jaFKHHpP//Ru2N5zAjJHTdwq/r7pnnzmo4h7gm0UA=@db.ccuycwmsmgomsykjkcao.supabase.co:5432/postgres",
     "NEXT_PUBLIC_SUPABASE_URL": "https://ccuycwmsmgomsykjkcao.supabase.co",
